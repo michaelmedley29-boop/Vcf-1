@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="0429 Publishing House provides professional book publishing, KDP setup, formatting, cover design, metadata, and author support." />
+  <title>0429 Publishing House | Publishing Dreams. Building Legacies.</title>
+  <style>
+    :root {
+      --black: #080808;
+      --panel: #121212;
+      --gold: #d8a83e;
+      --light-gold: #f1d28a;
+      --white: #f7f3eb;
+      --muted: #c7c0b5;
+      --border: rgba(216,168,62,.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, 92%); margin: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(8,8,8,.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+    nav {
+      min-height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700; letter-spacing: .05em;
+      color: var(--light-gold);
+      font-size: clamp(1rem, 3vw, 1.35rem);
+    }
+    .navlinks { display: flex; gap: 18px; align-items: center; font-size: .95rem; }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #f2d285, #ad791e);
+      color: #090909;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 0;
+      box-shadow: 0 8px 28px rgba(216,168,62,.18);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--light-gold);
+      border: 1px solid var(--gold);
+    }
+    .hero {
+      padding: 74px 0 54px;
+      background:
+        radial-gradient(circle at 78% 25%, rgba(216,168,62,.18), transparent 28%),
+        linear-gradient(180deg, #0b0b0b, #080808);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .eyebrow {
+      color: var(--gold);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: .8rem;
+    }
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.15;
+      margin-top: 0;
+    }
+    h1 { font-size: clamp(2.6rem, 7vw, 5.6rem); margin-bottom: 20px; }
+    h1 span { color: var(--light-gold); display: block; }
+    .lead { color: var(--muted); font-size: 1.12rem; max-width: 660px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .hero-card {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--panel);
+      box-shadow: 0 30px 90px rgba(0,0,0,.5);
+    }
+    .hero-card img { width: 100%; display: block; }
+    section { padding: 72px 0; }
+    .section-title { text-align: center; max-width: 760px; margin: 0 auto 40px; }
+    .section-title h2 { font-size: clamp(2rem, 5vw, 3.4rem); margin-bottom: 12px; }
+    .section-title p { color: var(--muted); }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .card {
+      background: linear-gradient(180deg, #151515, #0e0e0e);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+    }
+    .card h3 { color: var(--light-gold); font-size: 1.35rem; margin-bottom: 10px; }
+    .card p { color: var(--muted); margin: 0; }
+    .package {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, #17120a, #0d0d0d 65%);
+    }
+    .package-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 40px;
+    }
+    .price {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(4rem, 12vw, 8rem);
+      color: var(--light-gold);
+      line-height: 1;
+      margin: 8px 0 18px;
+    }
+    .checklist { list-style: none; padding: 0; margin: 0; }
+    .checklist li {
+      padding: 10px 0 10px 30px;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .checklist li::before {
+      content: "✓";
+      color: var(--gold);
+      position: absolute; left: 0; font-weight: 900;
+    }
+    .steps {
+      counter-reset: step;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .step {
+      counter-increment: step;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      background: #101010;
+    }
+    .step::before {
+      content: "0" counter(step);
+      display: block;
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: .12em;
+      margin-bottom: 14px;
+    }
+    .faq { max-width: 820px; margin: auto; }
+    details {
+      background: #111;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+    summary { cursor: pointer; font-weight: 800; color: var(--light-gold); }
+    details p { color: var(--muted); }
+    .cta {
+      text-align: center;
+      background: radial-gradient(circle at center, rgba(216,168,62,.16), transparent 55%);
+    }
+    .cta h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
+    .phone {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--light-gold);
+      font-size: clamp(2rem, 7vw, 4.2rem);
+      margin: 18px 0 26px;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    @media (max-width: 860px) {
+      .hero-grid, .package-grid { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .navlinks a:not(.btn) { display: none; }
+    }
+    @media (max-width: 560px) {
+      .cards, .steps { grid-template-columns: 1fr; }
+      .hero { padding-top: 48px; }
+      section { padding: 56px 0; }
+      .btn { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="wrap">
+      <a class="brand" href="#home">0429 PUBLISHING HOUSE</a>
+      <div class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#package">Package</a>
+        <a href="#process">Process</a>
+        <a class="btn" href="tel:+13347909254">Call 334-790-9254</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Professional Book Publishing Services</div>
+          <h1>Publishing Dreams.<span>Building Legacies.</span></h1>
+          <p class="lead">0429 Publishing House helps aspiring and established authors transform manuscripts into professionally published books. We handle the technical details so you can focus on your message and your readers.</p>
+          <div class="hero-actions">
+            <a class="btn" href="tel:+13347909254">Call Now</a>
+            <a class="btn btn-outline" href="sms:+13347909254?body=Hello%200429%20Publishing%20House.%20I%20am%20interested%20in%20publishing%20my%20book.">Text Us</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="0429-publishing-house-poster.png" alt="0429 Publishing House promotional poster" />
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-title">
+          <div class="eyebrow">What We Do</div>
+          <h2>From manuscript to marketplace</h2>
+          <p>Professional, affordable, personalized support for authors who want a simpler path to publication.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><h3>Amazon KDP Publishing</h3><p>Guidance and setup for publishing your book through Amazon Kindle Direct Publishing.</p></article>
+          <article class="card"><h3>Book Formatting</h3><p>Interior formatting for paperback, hardcover, and Kindle editions.</p></article>
+          <article class="card"><h3>Cover Design</h3><p>Professional front, spine, and back cover design prepared for publication.</p></article>
+          <article class="card"><h3>Metadata Support</h3><p>Book descriptions, keywords, categories, and other listing information.</p></article>
+          <article class="card"><h3>Author Consulting</h3><p>One-on-one support to help you make informed publishing decisions.</p></article>
+          <article class="card"><h3>Start-to-Finish Help</h3><p>A streamlined process designed for authors who do not want to manage every technical step alone.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="package" id="package">
+      <div class="wrap package-grid">
+        <div>
+          <div class="eyebrow">Complete Publishing Package</div>
+          <div class="price">$499</div>
+          <p class="lead">A clear starting price for authors ready to turn a finished manuscript into a professionally presented book.</p>
+          <a class="btn" href="sms:+13347909254?body=Hello%2C%20I%20would%20like%20details%20about%20the%20%24499%20publishing%20package.">Ask About the Package</a>
+        </div>
+        <div>
+          <ul class="checklist">
+            <li>Paperback and Kindle formatting</li>
+            <li>Professional book cover design</li>
+            <li>Interior layout and typesetting</li>
+            <li>Book description and metadata assistance</li>
+            <li>Amazon category and keyword support</li>
+            <li>KDP publishing assistance</li>
+            <li>Final publication-ready files</li>
+          </ul>
+          <p style="color:var(--muted);font-size:.9rem;margin-top:18px;">Final price and services should be confirmed in writing before work begins. Editing, illustrations, ISBN purchases, advertising, and unusually complex formatting may require separate pricing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="wrap">
+        <div class="section-title">
+          <div class="eyebrow">How It Works</div>
+          <h2>A simple path to becoming published</h2>
+        </div>
+        <div class="steps">
+          <div class="step"><h3>Send Your Manuscript</h3><p>Share your completed manuscript and the details of your book.</p></div>
+          <div class="step"><h3>Review the Plan</h3><p>We confirm the services, timeline, price, and publishing arrangement.</p></div>
+          <div class="step"><h3>Approve the Book</h3><p>You review and approve the formatted interior and cover design.</p></div>
+          <div class="step"><h3>Publish</h3><p>Your approved files are prepared and submitted for publication.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap faq">
+        <div class="section-title">
+          <div class="eyebrow">Frequently Asked Questions</div>
+          <h2>Before we begin</h2>
+        </div>
+        <details><summary>Do I keep the copyright to my book?</summary><p>Your written agreement should clearly state who owns the copyright and what publishing rights are granted. Authors generally keep their copyright unless a contract expressly transfers it.</p></details>
+        <details><summary>Does the $499 package include editing?</summary><p>The standard package is presented as publishing preparation and support. Developmental editing, copyediting, proofreading, illustrations, and major manuscript reconstruction should be quoted separately unless specifically included in writing.</p></details>
+        <details><summary>How long does publishing take?</summary><p>Timing depends on manuscript condition, formatting complexity, revisions, author approvals, and Amazon's review process. A timeline should be agreed upon after the manuscript is reviewed.</p></details>
+        <details><summary>Will my book automatically become a bestseller?</summary><p>No publisher can honestly guarantee sales or bestseller status. Professional publishing gives your book a credible presentation, while sales also depend on the book, audience, pricing, promotion, and reader demand.</p></details>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="wrap">
+        <div class="eyebrow">Ready to Get Started?</div>
+        <h2>Your story deserves a professional beginning.</h2>
+        <a class="phone" href="tel:+13347909254">334-790-9254</a>
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="btn" href="tel:+13347909254">Call 0429 Publishing House</a>
+          <a class="btn btn-outline" href="sms:+13347909254?body=Hello%200429%20Publishing%20House.%20I%20am%20ready%20to%20discuss%20my%20book.">Send a Text</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © 2026 0429 Publishing House. Publishing Dreams. Building Legacies.
+    </div>
+  </footer>
+</body>
+</html>
